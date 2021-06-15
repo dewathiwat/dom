@@ -176,7 +176,7 @@ function addStudentList(studentList){
 //     addStudentList(students)
     
 // })
-function onLode(){
+function onload(){
     let students
     fetch('asset/students2.json').then(response=>{
         return response.json()

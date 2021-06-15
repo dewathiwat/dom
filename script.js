@@ -147,7 +147,11 @@ function addStudentToTable(index, student) {
     row.appendChild(cell)
 
     cell = document.createElement('td')
-    cell.innerHTML = student.username
+
+    //cell.innerHTML = student.username
+    let img=document.createElement('img')
+    img.setAttribute('src',student.imageLink)
+    cell.appendChild(img)
     row.appendChild(cell)
     cell = document.createElement('td')
     cell.innerHTML = student.gender
@@ -174,8 +178,11 @@ function addStudentList(studentList){
 // })
 function onLode(){
     let students
-    fetch('asset/students.json').then(data=>{
-        students=data.json()
+    fetch('asset/students2.json').then(response=>{
+        return response.json()
     })
-    console.log(students)
+    .then(data=>{
+        let students =data
+       addStudentList(students)
+    })
 }
